@@ -1,0 +1,16 @@
+{% extends "page_template.html" %}
+{% block pagetitle %}Faq-N-A{% endblock pagetitle %}
+
+{% block pagescript %}
+<link href="/styles/login.css" rel="stylesheet" type="text/css" />
+{% endblock pagescript %}
+
+{% block container %}
+<form action="/login" method="POST">
+  <table>
+    <tr><td>Username</td><td><input name="handle" /></td></tr>
+    <tr><td>Password</td><td><input name="password" type="password" /></td></tr>
+    <tr><td><input type="submit" value="submit" /></td></tr>
+  </table>
+</form>
+{% endblock container %}

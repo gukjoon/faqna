@@ -1,0 +1,49 @@
+{% extends "page_template.html" %}
+{% block pagetitle %}Product{% endblock pagetitle %}
+
+{% block pagescript %}
+<link href="/styles/product.css" rel="stylesheet" type="text/css" />
+{% endblock pagescript %}
+
+{% block container %}
+<h2>{{product_title}}</h2>
+
+<h3>Tags</h3>
+{% for tag in product_tags %}
+<b>{{tag}}</b><br>
+{% endfor %}
+
+<h4>Add</h4>
+<form action="/product/{{product_id}}/tag" method="POST">
+  <input name="tag" />
+  <input type="submit" value="tag" />
+</form>
+
+
+
+<h3>Questions</h3>
+<h4>Add</h4>
+<form action="/product/{{product_id}}/question" method="POST">
+  <input name="text" />
+  <input type="submit" value="submit" />
+</form>
+
+{% for question in questions %}
+<h4>{{question.text}}</h4>
+
+{% for answer in question.answers %}
+<b>{{answer.text}}</b><br>
+{% endfor %}
+
+<form action="/product/{{product_id}}/answer/q/{{question.question_id}}" method="POST">
+  <input name="text" />
+  <input type="submit" value="submit" />
+</form>
+
+<br>
+<br>
+
+{% endfor %}
+
+
+{% endblock container %}

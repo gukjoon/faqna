@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>{% block pagetitle %}{% endblock pagetitle %}</title>
+    <link rel="shortcut icon" href="/favicon.ico" mce_href="/favicon.ico"/>
+    <link href="/styles/bebannered.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    {% block pagescript %}
+    {% endblock pagescript %}
+  </head>
+  <body>
+
+    <!--dynamic menu-->
+    {% ifnotequal user_name "" %}
+    {{user_name}}
+      <div id="header">
+      <div id="logo"><a href="/"><img src="/images/logo2.jpg" alt="FaqNA" class="link-img"/></a></div>
+      <div id="menubar">
+	<a href="/sell">SELL</a>
+	<a href="/buy">BUY</a>
+	<a href="/preferences">PREFERENCES</a>
+	<a href="/logout">LOGOUT</a>
+      </div>
+    </div>
+    
+    {% else %}
+    <div id="header">
+      <div id="logo"><a href="/"><img src="/images/logo2.jpg" alt="FaqNA" class="link-img"/></a></div>
+      <div id="menubar"> 
+	  <a href="/howitworks">HOW IT WORKS</a>
+	  <!--add browse option-->
+	  <a href="/about">ABOUT</a>
+	  <a href="/login">LOGIN</a>
+	  <a href="/register">JOIN!</a>
+      </div>
+    </div>
+    {% endifnotequal %}
+    
+    <!--main-->
+    <div id="container">
+      {% block container %}
+      {% endblock container %}
+    </div>
+    
+    <!--static footer-->
+    <div id="footer">
+      <a href="/">Home</a> .
+      <a href="/about">About</a> .
+      <a href="/privacy">Privacy</a><br/>
+      © 2010 FaqNA
+    </div>
+    
+      
+  </body>
+</html>

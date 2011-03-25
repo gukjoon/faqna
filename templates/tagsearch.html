@@ -1,0 +1,15 @@
+{% extends "page_template.html" %}
+{% block pagetitle %}Faq-N-A{% endblock pagetitle %}
+
+{% block pagescript %}
+<link href="/styles/main.css" rel="stylesheet" type="text/css" />
+{% endblock pagescript %}
+
+{% block container %}
+{% for product in products %}
+<a href="/product/{{product.id}}"><h3>{{product.title}}</h3></a>
+
+{% endfor %}
+
+
+{% endblock container %}

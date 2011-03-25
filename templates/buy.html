@@ -1,0 +1,16 @@
+{% extends "page_template.html" %}
+{% block pagetitle %}Faq-N-A{% endblock pagetitle %}
+
+{% block pagescript %}
+<link href="/styles/main.css" rel="stylesheet" type="text/css" />
+{% endblock pagescript %}
+
+{% block container %}
+<form action="/product/create" method="POST">
+  <input type="text" name="title" />
+  <input type="submit" value="submit" />
+</form>
+
+
+
+{% endblock container %}
